@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="add-to-cart-implFlow" doc:id="4f6dbcb7-5b72-4e58-9338-63723c67ed27" >
+		<logger level="INFO" doc:name="Logger" doc:id="ae69cc22-7eac-49d8-b28a-e195034d30c3" message="Start: Adding Item to cart "/>
+		<flow-ref doc:name="add-to-cart-sys-api-Sub_Flow" doc:id="a134f959-f072-49b9-87ab-150180bcb802" name="add-to-cart-sys-api-Sub_Flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c516fc7d-5b73-4bdf-a02d-c84619e691af" message="End: Add to Cart processed successfully "/>
+		<ee:transform doc:name="Transform Message" doc:id="eedd8dc1-2d52-47d8-92ac-cd354f7ca73c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+  "status" : "Items added to cart sucessfully"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

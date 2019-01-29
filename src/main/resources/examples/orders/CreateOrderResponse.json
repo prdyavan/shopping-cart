@@ -1,0 +1,17 @@
+
+{
+  "success": true,
+  "orderNumber": "SO-00002",
+  "accountNumber": "S00000001",
+  "status": "Pending",
+  "subscriptions": [
+    {
+      "subscriptionNumber": "SM-00001",
+      "status": "Pending Activation"
+    }
+    ],
+  "invoiceNumbers": [
+    "INV00000001"
+  ],
+  "paidAmount": 300
+}

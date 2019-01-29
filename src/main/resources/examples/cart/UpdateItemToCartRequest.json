@@ -1,0 +1,56 @@
+{
+  "updateItems": [
+    {
+      "createSubscription": {
+        "subscribeToRatePlans": [
+          {
+            "productRatePlanId": "efbff07e6290dfb8016291003bd00dda"
+          }
+        ],
+        "subscriptionNumber": "SM-00001",
+        "terms": {
+          "autoRenew": true,
+          "initialTerm": {
+            "period": 12,
+            "periodType": "Month",
+            "startDate": "2017-01-01",
+            "termType": "TERMED"
+          },
+          "renewalSetting": "RENEW_WITH_SPECIFIC_TERM",
+          "renewalTerms": [
+            {
+              "period": 12,
+              "periodType": "Month"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "updateSubscription": {
+        "subscribeToRatePlans": [
+          {
+            "productRatePlanId": "rtyhff07e6290dfb8016291003bd00dda"
+          }
+        ],
+        "subscriptionNumber": "SM-00001",
+        "terms": {
+          "autoRenew": true,
+          "initialTerm": {
+            "period": 1,
+            "periodType": "Month",
+            "startDate": "2017-01-01",
+            "termType": "TERMED"
+          },
+          "renewalSetting": "RENEW_WITH_SPECIFIC_TERM",
+          "renewalTerms": [
+            {
+              "period": 1,
+              "periodType": "Month"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+#%RAML 1.0
+title: Shopping Cart Demo
+description: Demo of Adding Items to Cart and placing an order
+
+version: v1
+baseUri: https://mocksvc.mulesoft.com/mocks/6e295a6c-b470-46ba-8b7c-8a232a909e19/api/v1 # baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/9c7d1602-c98d-412d-9635-e217853e10be/api/v1 # baseUri: https://somehost.com/api/v1
+
+uses:
+  commontraits : traits//traits.raml
+  commontypes : libraries//commonDataType.raml
+  
+
+/ping:
+  description: service to ping the app and check availability
+  get:
+    is: [commontraits.standard-error-responses,commontraits.client-credentials-required]
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples//ping//get-response.json
+
+
+/cart:
+  description: Operations related to Cart
+  /item:
+    description: CURD operations for Item.
+    /{accId} :
+      description: Account Object Id for which operations take place
+      uriParameters:
+        accId: 
+          type: commontypes.AccountId
+          required: true
+
+      /add:
+        description: Add Item to Cart
+        post:
+          is: [commontraits.content-type-required,commontraits.standard-error-responses,commontraits.client-credentials-required]
+          body:
+            application/json:
+              example : !include examples//cart//AddItemToCartReuest.json
+          responses:
+            200:
+              body:
+                application/json:
+                  example : !include examples//cart//AddToCartResponse.json
+
+      /update:
+        description: Update Items in Cart
+        post:
+          is: [commontraits.content-type-required,commontraits.standard-error-responses,commontraits.client-credentials-required]
+          body:
+            application/json:
+              example : !include examples//cart//UpdateItemToCartRequest.json
+          responses:
+            200:
+              body:
+                application/json:
+                  example : !include examples//cart//AddToCartResponse.json
+                  
+      /delete:
+        description: Delete Items from Cart
+        post:
+          is: [commontraits.content-type-required,commontraits.standard-error-responses,commontraits.client-credentials-required]
+          body:
+            application/json:
+              example : !include examples//cart//DeleteItemFromCart.json
+          responses:
+            200:
+              body:
+                application/json:
+                  example : !include examples//cart//AddToCartResponse.json
+
+/order:
+  description: Order Actions
+
+  /create:
+    description: Submit or Create a order
+    post:
+      is: [commontraits.content-type-required,commontraits.standard-error-responses,commontraits.client-credentials-required]
+      body:
+        application/json:
+          example: !include examples//orders//CreateOrderRequest.json
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                !include examples//orders//CreateOrderResponse.json
+
+  /update:
+    description: Update the existing order
+    post:
+      is: [commontraits.content-type-required,commontraits.standard-error-responses,commontraits.client-credentials-required] 
+      body:
+        application/json:
+          example: !include examples//orders//CreateOrderRequest.json
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                !include examples//orders//CreateOrderResponse.json           
+        

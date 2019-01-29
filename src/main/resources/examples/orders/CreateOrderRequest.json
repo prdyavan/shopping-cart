@@ -1,0 +1,46 @@
+{
+  "existingAccountNumber": "S00000001",
+  "orderDate": "2017-01-01",
+  
+  
+  "subscriptions": [
+    {
+      "orderActions": [
+        {
+          "createSubscription": {
+            "subscribeToRatePlans": [
+              {
+                "productRatePlanId": "efbff07e6290dfb8016291003bd00dda"
+              }
+            ],
+            "subscriptionNumber": "SM-00001",
+            "terms": {
+              "autoRenew": true,
+              "initialTerm": {
+                "period": 12,
+                "periodType": "Month",
+                "startDate": "2017-01-01",
+                "termType": "TERMED"
+              },
+              "renewalSetting": "RENEW_WITH_SPECIFIC_TERM",
+              "renewalTerms": [
+                {
+                  "period": 12,
+                  "periodType": "Month"
+                }
+              ]
+            }
+          },
+          "triggerDates": [
+            {
+              "name": "ContractEffective",
+              "triggerDate": "2017-01-01"
+            }
+          ],
+          "type": "CreateSubscription"
+        }
+      ]
+    }
+    
+  ]
+}

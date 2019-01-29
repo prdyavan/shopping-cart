@@ -1,0 +1,11 @@
+
+api:
+  id: "15473644"
+  base: "api"
+  version: "v1"
+  
+http:
+  listener.port: "8092"
+  listener.keystore: "clientkeystore.jks"
+  listener.keystorepass: "password123"
+

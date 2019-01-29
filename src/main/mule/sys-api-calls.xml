@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	
+	<sub-flow name="add-to-cart-sys-api-Sub_Flow" doc:id="b865e450-20bf-4b4d-bdb5-6265048642eb" >
+		<http:request method="POST" doc:name="RequestAddToCart" doc:id="4c290ca2-6571-4bca-b598-185ad0b18c34" path='#["\${secure::demo.sys.api.base.path}" ++ "\${secure::demo.add.to.cart}"]' config-ref="HTTP_Request_configuration"/>
+	</sub-flow>
+	
+	<sub-flow name="order-create-sys-api-Sub_Flow" doc:id="961099b9-2888-4775-abf1-8e79609d1259" >
+		<http:request method="POST" doc:name="RequestOrderCreate" doc:id="0c9fd535-ebf1-487c-8558-c1921a834345" path='#["\${secure::demo.sys.api.base.path}" ++ "\${secure::demo.order.create}"]' config-ref="HTTP_Request_configuration"/>
+	</sub-flow>
+	
+</mule>

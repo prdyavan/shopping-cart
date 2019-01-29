@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="order-create-implFlow" doc:id="34f56843-b0e7-4049-9ffb-f61a6146f472" >
+		<logger level="INFO" doc:name="Logger" doc:id="2ced58be-f2c7-4c6e-8dff-9c3980535d80" message="Start: Create Order request"/>
+		<flow-ref doc:name="order-create-sys-api-Sub_Flow" doc:id="303f2922-a5fd-403f-8e94-9956c2307522" name="order-create-sys-api-Sub_Flow"/>
+		<ee:transform doc:name="Transform Message" doc:id="e87ad968-a758-4428-93e5-e0ca1358b041" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+
+{
+  "success": true,
+  "orderNumber": "SO-00002",
+  "accountNumber": "S00000001",
+  "status": "Pending",
+  "subscriptions": [
+    {
+      "subscriptionNumber": "SM-00001",
+      "status": "Pending Activation"
+    }
+    ],
+  "invoiceNumbers": [
+    "INV00000001"
+  ],
+  "paidAmount": 300
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="8949b7a9-f53d-4e79-b76a-7ea57166ac1e" message="End: Order Create request processed successfully "/>
+	</flow>
+</mule>
