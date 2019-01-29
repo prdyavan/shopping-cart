@@ -1,6 +1,7 @@
 # mule4-ShippingCart
 This is a Mule 4.x example of an API using API Management that can be used as a starting point for building system APIs in Mule 4.x. 
 
+[API Documentation](https://anypoint.mulesoft.com/exchange/portals/self-4067/1c318b8d-bf70-4733-8e6d-1fbc65389228/shopping-cart/1.0.1/console/summary/)
 
 ## Uses
 
@@ -9,7 +10,6 @@ The project contains examples using:
 
 * The secure property connector (formally called the secure-property-placeholder),
 * Maven deployment using the mule-maven-plugin descriptor,
-* Api Manager gateway auto-discovery registration,
 * Using the Maven filter "feature" to add Maven properties to code in files stored in the resources-filtered directory...specifically, updating the api.base and log4j2 configurations with the project name.
 
 ## Purpose
